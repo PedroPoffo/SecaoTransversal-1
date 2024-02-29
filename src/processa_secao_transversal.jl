@@ -1,6 +1,5 @@
 
-using Plots
-include("geometrias.jl")
+
 
 function Processa_Secao(n_secoes,secao,nome_grafico="secao.png")
 

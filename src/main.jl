@@ -1,7 +1,18 @@
-function Calcula_Secao(arquivo="exemplos/referencia_secao_L")
+"""
+  Calcula_Secao(arquivo sem terminação yaml)
+
+"""
+function Calcula_Secao(arquivo)
+
+    # Testa para vermos se arquivo está OK
+	isempty(arquivo) && trow("Calcula_Secao:: é necessário informar um arquivo .yaml com os dados da seção")
+
+	# Se o usuário passou o arquivo com .yaml, desfazemos
+	if contains(arquivo,".yaml")
+		arquivo = arquivo[1:end-5]
+	end
 
 	# Le a geometria
-
 	# Devolve o numero de seções e o dicionário com as informações
 	n_secoes,secoes = Le_Geometria_YAML(arquivo*".yaml")
 
