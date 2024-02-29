@@ -5,7 +5,7 @@ module SecaoTranversal
 	using YAML
         using Plots
 	
-        incude("geometrias.jl")
+        include("geometrias.jl")
 	include("le_geometria.jl")
         include("processa_secao_transversal.jl")
         include("main.jl")
