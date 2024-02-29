@@ -1,0 +1,30 @@
+
+#
+# Seção transversal em L
+#
+
+versao: 1.0
+
+# Título é opcional
+titulo:  "L para verificação" 
+
+# Data de criação também
+data:  29/11/2023
+
+
+secao:
+  - tipo: retangulo
+    nome: horizontal
+    x0: 0.0
+    y0: 0.0
+    base: 5E-2
+    altura: 1E-2
+    solido: 1
+  - tipo: retangulo
+    nome: vertical
+    x0: 0.0
+    y0: 1E-2
+    base: 1E-2
+    altura: 4E-2
+    solido: 1
+  

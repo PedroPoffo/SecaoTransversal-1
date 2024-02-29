@@ -1,0 +1,27 @@
+#
+# Seção transversal em trapezio - apêndice Hibbeler
+#
+
+versao: 1.0
+
+# Título é opcional
+titulo:  "Seção transversal em trapézio" 
+
+# Data de criação também
+data:  29/01/2024
+
+# A seção é composta por um único trapézio - a origem está no centroide da figura
+# b = base maior
+# bm = base menor
+# h = altura
+secao:
+  - tipo: trapezio
+    nome: unico
+    x0: 0
+    y0: 0
+    basemaior: 80E-2
+    altura: 40E-2
+    basemenor: 50E-2
+    solido: 1
+
+  

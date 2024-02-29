@@ -1,0 +1,30 @@
+
+#
+# Seção transversal em T - página 571 Hibbeler
+#
+
+versao: 1.0
+
+# Título é opcional
+titulo:  "T para verificação" 
+
+# Data de criação também
+data:  29/01/2024
+
+# A seção é composta por dois retângulos - um horizontal e outro vertical
+secao:
+  - tipo: retangulo
+    nome: horizontal
+    x0: 0.0
+    y0: 10E-2
+    base: 8E-2
+    altura: 3E-2
+    solido: 1
+  - tipo: retangulo
+    nome: vertical
+    x0: 3E-2
+    y0: 0
+    base: 2E-2
+    altura: 10E-2
+    solido: 1
+  

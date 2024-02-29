@@ -1,0 +1,29 @@
+
+#
+# Quadrado com um furo circular no meio 
+#
+
+versao: 1.0
+
+# Título é opcional
+titulo:  "Quadrado com furo circular no meio" 
+
+# Data de criação também
+data:  29/11/2023
+
+
+secao:
+  - tipo: retangulo
+    nome: cheio
+    x0: 0.0
+    y0: 0.0
+    base: 1E-2
+    altura: 1E-2
+    solido: 1
+  - tipo: circulo
+    nome: furo
+    x0: 5E-3
+    y0: 5E-3
+    raio: 3E-3
+    solido: -1
+  

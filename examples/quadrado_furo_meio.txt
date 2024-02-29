@@ -1,0 +1,4 @@
+Centroide em 0.005000000000000001,0.005000000000000001
+Momentos de inércias no sistema original Iz=7.697160820981401e-10 Iy=7.697160820981401e-10 Izy=-5.39603938113999e-41
+ângulo principal 0.0
+Momentos de inércia no sistema principal Iz=7.697160820981401e-10 e Iy=7.697160820981401e-10
