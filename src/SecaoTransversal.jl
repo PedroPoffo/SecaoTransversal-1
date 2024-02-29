@@ -1,4 +1,4 @@
-module SecaoTranversal
+module SecaoTransversal
 
 	using LinearAlgebra
         using OrderedCollections
