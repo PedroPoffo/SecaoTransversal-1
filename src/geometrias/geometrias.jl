@@ -1,37 +1,11 @@
 
+#
+# ESTE ARQUIVO NÃO ESTÁ SENDO UTILIZADO POIS ESTAS DEFINIÇÕES NÃO FORAM VALIDADAS 
+#
 
-# Rotina para desenhar um retângulo
-# Função shape: "desenha" a figura
-retangulo(x,y,b,h) = Shape(x .+ [0,b,b,0], y .+ [0,0,h,h])
-
-function Processa_retangulo(x0,y0,b,h)
-
-   xc = x0 + b/2
-   yc = y0 + h/2
-   A = b*h
-   Ix = b*h^3 / 12
-   Iy = h*b^3 / 12
-   Ixy = 0.0
-
-   return xc, yc, A, Ix, Iy, Ixy
-end
-
-# Rotina para desenhar um triângulo
-triangulo(x,y,b,h) = Shape([x, x+b, x+b/2, x],[y, y, y+h, y])
-
-function Processa_triangulo(x0,y0,b,h)
-   
-   xc = x0 + b/2
-   yc = y0 + h/3
-   A = b*h/2
-   Ix = (b*h^3) / 36
-   Iy = (h*b^3) / 36
-   Ixy = 0.0
-   
-   return xc, yc, A, Ix, Iy, Ixy
-end
-
-
+#
+# TODO Este cara não parece estar certo...verificar!
+#
 # Rotina para desenhar um triangulo com origem dos eixos no centroide de forma mais geral(fig3 apD Gere, p643)
 triangulo2(x,y,h,b,a) = Shape([x, x+b, x+(b-a), x], [y, y, y+h, y])
 
@@ -49,25 +23,6 @@ function Processa_triangulo2(x0, y0, b, h, a)
 
    return xc, yc, A, Ix, Iy, Ixy
 
-end
-
-# Rotina para desenhar um círculo 
-# Para o circulo, x e y estão no centro. Para o retângulo e triângulo são os dos cantos
-function circulo(x,y,r,ndiv=60) 
-   θ = 0:360÷ndiv:360
-   Shape(r*sind.(θ) .+ x, r*cosd.(θ) .+ y)
-end
-# X0 e Y0 são as coordenadas do centro
-function Processa_circulo(x0,y0,r)
-
-   xc = x0 
-   yc = y0 
-   A = pi*r^2
-   Ix = (pi*r^4)/4
-   Iy = (pi*r^4)/4
-   Ixy = 0.0
-
-   return xc, yc, A, Ix, Iy, Ixy
 end
 
 # Rotina para desenhar um trapézio

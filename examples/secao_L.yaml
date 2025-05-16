@@ -5,13 +5,13 @@
 
 versao: 1.0
 
-# Título é opcional
-titulo:  "L para verificação" 
+# Título
+titulo:  "Seção em L" 
 
-# Data de criação também
-data:  29/11/2023
+# Data de criação 
+data:  16/05/2025
 
-
+# Dados para a seção 
 secao:
   - tipo: retangulo
     nome: horizontal

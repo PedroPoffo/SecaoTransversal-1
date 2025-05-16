@@ -16,15 +16,26 @@ function Calcula_Secao(arquivo)
 	# Devolve o numero de seções e o dicionário com as informações
 	n_secoes,secoes = Le_Geometria_YAML(arquivo*".yaml")
 
-	# Processa a seação
+    # Verifica a consitência dos dados
+	Verifica_consistencia(secoes)
+
+	# Processa a seção
 	xc, yc, area, Iz, Iy, Izy, α,  Izl, Iyl, tabela = Processa_Secao(n_secoes,secoes,arquivo*".png");
 
 	# Gera um arquivo com os dados básicos
 	fd = open(arquivo*".txt","w")
-	println(fd,"Centroide em $xc,$yc")
-	println(fd,"Momentos de inércias no sistema original Iz=$Iz Iy=$Iy Izy=$Izy")
-	println(fd,"ângulo principal $α")
-	println(fd,"Momentos de inércia no sistema principal Iz=$Izl e Iy=$Iyl")
+	println(fd,"Centroide em ")
+	println(fd,"x $xc")
+	println(fd,"y $yc")
+	println(fd,"Área $area")
+	println(fd,"Momentos de inércias no sistema original")
+	println(fd,"Iz  $Iz")
+	println(fd,"Iy  $Iy")
+	println(fd,"Izy $Izy")
+	println(fd,"Ângulo principal $α")
+	println(fd,"Momentos de inércia no sistema principal")
+	println(fd,"Iz' $Izl") 
+	println(fd,"Iy' $Iyl")
 	close(fd)
 end
 

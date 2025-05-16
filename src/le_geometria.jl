@@ -2,9 +2,10 @@ using OrderedCollections
 using YAML
 
 #
-# Le um arquivo de dados de geometria em YAML
+# Le um arquivo de dados de geometria em YAML. O processamento é bem simples,
+# em que apenas lemos os dados e devolvemos um vetor de dicionários  <secao>
 #
-function Le_Geometria_YAML(arquivo,ver=1.0)
+function Le_Geometria_YAML(arquivo,ver=1.0,verbose=true)
 
    # Primeiro lemos o arquivo de dados
    dados = YAML.load_file(arquivo)
@@ -30,23 +31,25 @@ function Le_Geometria_YAML(arquivo,ver=1.0)
       data = dados["data"]
    end
 
-   println("Lendo    ",arquivo)
-   println("Versão:  ", versao)
-   println("Título:  ", titulo)
-   println("Data:    ", data)
+   # Se for o caso, mostra os dados na tela
+   if verbose
+      println("Lendo    ",arquivo)
+      println("Versão:  ", versao)
+      println("Título:  ", titulo)
+      println("Data:    ", data)
+   end
 
 
    # Le o vetor de dicionários com a geometria da seção
-
-
-   haskey(dados, "secao") || throw("Arquivo não contém as informações sobre a seção.")
+   haskey(dados, "secao") || error("Arquivo não contém as informações sobre a seção.")
    secao = dados["secao"]
 
    # Número de informações no arquivo
    n_secoes = length(secao)
 
-   println("Seção tem ",n_secoes, " partes")
-
+   if verbose 
+      println("Seção tem ",n_secoes, " partes")
+   end
 
    # Retorna o número de entidades geométricas
    # e o dicionário de entidades
