@@ -4,7 +4,7 @@
 # calcula as propriedades da seção composta
 #
 
-function Processa_Secao(n_secoes::Int64,secao::Vector{Dict{Any,Any}},nome_grafico="secao.png")
+function Processa_Secao(n_secoes::Int64,secao::Vector{Dict{Any,Any}},output::Bool,nome_grafico="secao.png")
 
    
    #
@@ -20,7 +20,9 @@ function Processa_Secao(n_secoes::Int64,secao::Vector{Dict{Any,Any}},nome_grafic
    n_circulos = 0
    
    # Inicializa um plot
-   p = plot()
+   if output
+      p = plot()
+   end
 
    # Registramos as coordenadas máximas de todo o domínio
    x_max = 0.0
@@ -68,13 +70,15 @@ function Processa_Secao(n_secoes::Int64,secao::Vector{Dict{Any,Any}},nome_grafic
          y_max = max(y_max,y0+h)
 
          # Adiciona ao plot
-         if s==1
-            # Se for um sólido
-            # plot! -> adiciona o plot no que já existia
-            plot!(p,retangulo(x0,y0,b,h),label=nome)
-         else
-            # Se for um furo
-            plot!(p,retangulo(x0,y0,b,h),label=nome,fill=(0,:black))
+         if output
+            if s==1
+               # Se for um sólido
+               # plot! -> adiciona o plot no que já existia
+               plot!(p,retangulo(x0,y0,b,h),label=nome)
+            else
+               # Se for um furo
+               plot!(p,retangulo(x0,y0,b,h),label=nome,fill=(0,:black))
+            end
          end
 
 
@@ -98,10 +102,12 @@ function Processa_Secao(n_secoes::Int64,secao::Vector{Dict{Any,Any}},nome_grafic
          y_max = max(y_max,y0+h)
 
          # Adiciona ao plot
-         if s==1
-            plot!(p,triangulo(x0,y0,b,h),label=nome)
-         else
-           plot!(p,triangulo(x0,y0,b,h),label=nome,fill=(0,:black))
+         if output
+            if s==1
+               plot!(p,triangulo(x0,y0,b,h),label=nome)
+            else
+            plot!(p,triangulo(x0,y0,b,h),label=nome,fill=(0,:black))
+            end
          end
 
       elseif tipo=="circulo"
@@ -121,10 +127,12 @@ function Processa_Secao(n_secoes::Int64,secao::Vector{Dict{Any,Any}},nome_grafic
          y_max = max(y_max,y0+r)
 
          # Adiciona ao plot
-         if s==1
-            plot!(p,circulo(x0,y0,r),label=nome)
-         else
-           plot!(p,circulo(x0,y0,r),label=nome,fill=(0,:black))
+         if output
+            if s==1
+               plot!(p,circulo(x0,y0,r),label=nome)
+            else
+            plot!(p,circulo(x0,y0,r),label=nome,fill=(0,:black))
+            end
          end
 
        else
@@ -188,19 +196,21 @@ function Processa_Secao(n_secoes::Int64,secao::Vector{Dict{Any,Any}},nome_grafic
    # Vamos gerar o gráfico da figura e também dos eixos centrais principais de inércia 
 
    # Uma medida para os eixos 
-   r = min(x_max, y_max)
+   if output
+      r = min(x_max, y_max)
 
-   # Com isso, podemos desenhar o sistema de referência rotacionado eixo_x
-   plot!(p,[xc,xc-r*cosd(α)],[yc,yc-r*sind(α)],arrow=true,color=:black,label="z'")
-   
-   # eixo_y
-   plot!(p,[xc,xc-r*sind(α)],[yc,yc+r*cosd(α)],arrow=true,color=:black,label="y'")
-   
-   # Garante que o gráfico fique em escala
-   plot!(p,aspect_ratio=1.0)
+      # Com isso, podemos desenhar o sistema de referência rotacionado eixo_x
+      plot!(p,[xc,xc-r*cosd(α)],[yc,yc-r*sind(α)],arrow=true,color=:black,label="z'")
+      
+      # eixo_y
+      plot!(p,[xc,xc-r*sind(α)],[yc,yc+r*cosd(α)],arrow=true,color=:black,label="y'")
+      
+      # Garante que o gráfico fique em escala
+      plot!(p,aspect_ratio=1.0)
 
-   # Salva a imagem 
-   savefig(nome_grafico)
+      # Salva a imagem 
+      savefig(nome_grafico)
+   end
 
    # Devolve os valores para o nosso controle
    return xc, yc, area, Iz, Iy, Izy, α,  Izl, Iyl, tabela
