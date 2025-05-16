@@ -1,0 +1,9 @@
+secao:
+  - tipo: triangulo
+    nome: cheio
+    x0: 1.0
+    y0: 2.0
+    base: 1E-2
+    altura: 2E-2
+    solido: 1
+  

@@ -5,7 +5,7 @@ using YAML
 # Le um arquivo de dados de geometria em YAML. O processamento é bem simples,
 # em que apenas lemos os dados e devolvemos um vetor de dicionários  <secao>
 #
-function Le_Geometria_YAML(arquivo,ver=1.0,verbose=true)
+function Le_Geometria_YAML(arquivo,ver=1.0;verbose=true)
 
    # Primeiro lemos o arquivo de dados
    dados = YAML.load_file(arquivo)
@@ -16,7 +16,7 @@ function Le_Geometria_YAML(arquivo,ver=1.0,verbose=true)
       versao = dados["versao"]
 
       # Verifica se a versão é compatível
-      versao==ver || throw("Le_Geometris_YAML::versão do arquivo não é compatível com a versão atual") 
+      versao==ver || error("Le_Geometris_YAML::versão do arquivo não é compatível com a versão atual") 
         
    end
 

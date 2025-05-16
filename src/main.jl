@@ -2,7 +2,7 @@
   Calcula_Secao(arquivo sem terminação yaml)
 
 """
-function Calcula_Secao(arquivo,output=true)
+function Calcula_Secao(arquivo;output=true,verbose=true)
 
     # Testa para vermos se arquivo está OK
 	isempty(arquivo) && trow("Calcula_Secao:: é necessário informar um arquivo .yaml com os dados da seção")
@@ -14,7 +14,7 @@ function Calcula_Secao(arquivo,output=true)
 
 	# Le a geometria
 	# Devolve o numero de seções e o dicionário com as informações
-	n_secoes,secoes = Le_Geometria_YAML(arquivo*".yaml")
+	n_secoes,secoes = Le_Geometria_YAML(arquivo*".yaml", verbose=verbose)
 
     # Verifica a consitência dos dados
 	Verifica_consistencia(secoes)
@@ -39,6 +39,10 @@ function Calcula_Secao(arquivo,output=true)
 		println(fd,"Iy' $Iyl")
 		close(fd)
 	end
+
+    # Retorna os dados
+	return xc, yc, area, Iz, Iy, Izy, α,  Izl, Iyl
+
 end
 
 

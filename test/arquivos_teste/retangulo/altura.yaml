@@ -1,0 +1,8 @@
+secao:
+  - tipo: retangulo
+    nome: cheio
+    x0: 0.0
+    y0: 0.0
+    base: 1E-2
+    solido: 1
+  

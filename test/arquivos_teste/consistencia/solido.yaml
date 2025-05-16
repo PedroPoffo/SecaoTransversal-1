@@ -1,0 +1,7 @@
+secao:
+  - tipo: retangulo
+    nome: horizontal
+    x0: 0.0
+    y0: 0.0
+    base: 5E-2
+    altura: 1E-2

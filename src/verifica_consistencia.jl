@@ -32,18 +32,18 @@ function Verifica_consistencia(secao::Vector{Dict{Any,Any}})
         # Aqui precisamos verificar se retângulos e/ou triângulos tem base e altura 
         # definidas
         if tipo == "retangulo" 
-           haskey(dado,"base")    || throw("Figuras do tipo retangulo precisam de base")
-           haskey(dado,"altura")  || throw("Figuras do tipo retangulo precisam de altura")
+           haskey(dado,"base")    || error("Figuras do tipo retangulo precisam de base")
+           haskey(dado,"altura")  || error("Figuras do tipo retangulo precisam de altura")
         end
   
          if tipo == "triangulo" 
-            haskey(dado,"base")    || throw("Figuras do tipo triangulo precisam de base")
-            haskey(dado,"altura")  || throw("Figuras do tipo triangulo precisam de altura")
+            haskey(dado,"base")    || error("Figuras do tipo triangulo precisam de base")
+            haskey(dado,"altura")  || error("Figuras do tipo triangulo precisam de altura")
          end
   
         # Verifica se é um círculo e se temos o raio definido
         if tipo == "circulo" 
-          haskey(dado,"raio")  || throw("Figuras do tipo círculo precisam de raio")
+          haskey(dado,"raio")  || error("Figuras do tipo círculo precisam de raio")
         end
              
         # Retângulos e triângulos tem base e altura

@@ -1,0 +1,33 @@
+
+#
+# Seção transversal em T - página 571 Hibbeler
+#
+
+# A seção em T composta por dois retângulos - um horizontal e outro vertical
+# O primeiro inicia em (0,10)cm e tem base=8cm e altura=3cm a partir deste ponto.
+# O segundo inicia em (3,0)cm e tem base=2cm e altura=10cm a partir deste ponto.
+#
+#
+# Os valores calculados para esta geometria são 
+#
+# Centroide em 0.04000000000000001,0.08545454545454546
+# Momentos de inércias no sistema original Iz=6.455757575757577e-6 Iy=1.346666666666667e-6 Izy=-1.88079096131566e-37
+# ângulo principal 0.0
+# Momentos de inércia no sistema principal Iz=6.455757575757577e-6 e Iy=1.346666666666667e-6
+#
+secao:
+  - tipo: retangulo
+    nome: horizontal
+    x0: 0.0
+    y0: 10E-2
+    base: 8E-2
+    altura: 3E-2
+    solido: 1
+  - tipo: retangulo
+    nome: vertical
+    x0: 3E-2
+    y0: 0
+    base: 2E-2
+    altura: 10E-2
+    solido: 1
+  

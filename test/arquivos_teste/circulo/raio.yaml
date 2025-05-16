@@ -1,0 +1,7 @@
+secao:
+  - tipo: circulo
+    nome: cheio
+    x0: 0.0
+    y0: 0.0
+    solido: 1
+  
