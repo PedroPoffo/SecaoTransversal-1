@@ -1,15 +1,15 @@
 @testset "Triangulo" begin
     
     # Arquivo sem definição de base
-    @test_throws Exception Calcula_Secao("arquivos_teste/triangulo/base.yaml",verbose=false,output=false)
+    @test_throws Exception Calcula_Secao("test/arquivos_teste/triangulo/base.yaml",verbose=false,output=false)
     
     # Arquivo sem definição de altura
-    @test_throws Exception Calcula_Secao("arquivos_teste/triangulo/altura.yaml",verbose=false,output=false)
+    @test_throws Exception Calcula_Secao("test/arquivos_teste/triangulo/altura.yaml",verbose=false,output=false)
     
     #
     # Roda um triângulo 1cm × 2cm  e com o ponto inicial definido em (1,2)m
     #
-    saida = Calcula_Secao("arquivos_teste/triangulo/tri12.yaml",verbose=false,output=false)
+    saida = Calcula_Secao("test/arquivos_teste/triangulo/tri12.yaml",verbose=false,output=false)
 
     # Centroide
     @test saida[1] ≈ 1+0.5E-2

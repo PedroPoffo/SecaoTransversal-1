@@ -3,7 +3,7 @@
     #
     # Roda um quadrado 1cm × 1cm e um furo circular no centro, com raio 0.3cm
     #
-    saida = Calcula_Secao("arquivos_teste/composicao/quadrado_furo.yaml",verbose=false,output=false)
+    saida = Calcula_Secao("test/arquivos_teste/composicao/quadrado_furo.yaml",verbose=false,output=false)
 
     # Centroide
     @test saida[1] ≈ 1E-2 / 2
@@ -33,7 +33,7 @@
     # ângulo principal 0.0
     # Momentos de inércia no sistema principal Iz=6.455757575757577e-6 e Iy=1.346666666666667e-6
 
-    saida = Calcula_Secao("arquivos_teste/composicao/T.yaml",verbose=false,output=false)
+    saida = Calcula_Secao("test/arquivos_teste/composicao/T.yaml",verbose=false,output=false)
 
     # Centroide
     @test saida[1] ≈ 0.04
@@ -59,7 +59,7 @@
     # Roda a seção em L
     #
     
-    saida = Calcula_Secao("arquivos_teste/composicao/L.yaml",verbose=false,output=false)
+    saida = Calcula_Secao("test/arquivos_teste/composicao/L.yaml",verbose=false,output=false)
 
     # Centroide
     @test saida[1] ≈ 0.01611111111111111

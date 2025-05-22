@@ -1,12 +1,12 @@
 @testset "Circulo" begin
     
     # Arquivo sem definição de raio
-    @test_throws Exception Calcula_Secao("arquivos_teste/circulo/raio.yaml",verbose=false,output=false)
+    @test_throws Exception Calcula_Secao("test/arquivos_teste/circulo/raio.yaml",verbose=false,output=false)
     
     #
     # Roda um círculo de raio 2cm  e com centro em (1,2)m
     #
-    saida = Calcula_Secao("arquivos_teste/circulo/circ2.yaml",verbose=false,output=false)
+    saida = Calcula_Secao("test/arquivos_teste/circulo/circ2.yaml",verbose=false,output=false)
 
     # Centroide
     @test saida[1] ≈ 1.0

@@ -1,15 +1,15 @@
 @testset "Retangulo" begin
     
     # Arquivo sem definição de base
-    @test_throws Exception Calcula_Secao("arquivos_teste/retangulo/base.yaml",verbose=false,output=false)
+    @test_throws Exception Calcula_Secao("test/arquivos_teste/retangulo/base.yaml",verbose=false,output=false)
     
     # Arquivo sem definição de altura
-    @test_throws Exception Calcula_Secao("arquivos_teste/retangulo/altura.yaml",verbose=false,output=false)
+    @test_throws Exception Calcula_Secao("test/arquivos_teste/retangulo/altura.yaml",verbose=false,output=false)
     
     #
     # Roda um retângulo 1cm × 2cm  e com o ponto inicial definido em (1,2)m
     #
-    saida = Calcula_Secao("arquivos_teste/retangulo/ret12.yaml",verbose=false,output=false)
+    saida = Calcula_Secao("test/arquivos_teste/retangulo/ret12.yaml",verbose=false,output=false)
 
     # Centroide
     @test saida[1] ≈ 1+0.5E-2
